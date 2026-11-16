@@ -5,6 +5,5 @@ public class CartaDiCredito extends Pagamento{
         super(importo);
     }
 
-    
 
 }
