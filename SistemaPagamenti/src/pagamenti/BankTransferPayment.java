@@ -3,7 +3,7 @@ package pagamenti;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class BankTranserPayment implements PaymentStrategy {
+public class BankTransferPayment implements PaymentStrategy {
     @Override 
     public String getName(){
         return "bonifico bancario";

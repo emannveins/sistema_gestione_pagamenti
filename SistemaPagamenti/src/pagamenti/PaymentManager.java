@@ -30,25 +30,21 @@ public class PaymentManager {
 
     // Selezione della strategia
     public void setPaymentStrategy(PaymentStrategy strategy) {
-
         if (strategy == null) {
             throw new IllegalArgumentException("strategia non valida!");
         }
         currentStrategy = strategy;
-
         System.out.println( "Modalità selezionata: " + currentStrategy.getName());
     }
 
 
      // Elaborazione del pagamento
     public boolean processPayment(BigDecimal amount) {
-
         if (currentStrategy == null) {
             throw new IllegalStateException( "devi prima selezionare un metodo di pagamento!" );
         }
 
         if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) {  throw new IllegalArgumentException( "L'importo deve essere maggiore di zero!"); }
-
         boolean successful = currentStrategy.pay(amount);
 
         if (successful) {
@@ -58,10 +54,8 @@ public class PaymentManager {
                 amount,
                 LocalDateTime.now()
             );
-
             transactions.add(transaction);
         }
-
         return successful;
     }
 
@@ -77,13 +71,10 @@ public class PaymentManager {
         }
 
         BigDecimal total = BigDecimal.ZERO;
-
         System.out.println("\n========== RIEPILOGO PAGAMENTI ==========");
 
         for (PaymentTransaction transaction : transactions) {
-
             System.out.println(transaction);
-
             total = total.add(transaction.getAmount());
         }
 

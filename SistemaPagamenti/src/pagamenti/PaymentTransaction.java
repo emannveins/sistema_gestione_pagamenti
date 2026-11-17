@@ -16,7 +16,6 @@ public class PaymentTransaction {
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
     public PaymentTransaction(int id, String paymentMethod,BigDecimal amount, LocalDateTime dateTime) {
-
         this.id = id;
         this.paymentMethod = paymentMethod;
         this.amount = amount;
